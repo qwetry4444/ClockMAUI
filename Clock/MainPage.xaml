@@ -2,15 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:Clock"
+             x:DataType="controls:MainPage"      
              x:Class="Clock.MainPage">
 
-    <HorizontalStackLayout>
+    <HorizontalStackLayout Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
 
 
-        <controls:SevenSegmentNumber Number="1"/>
-        <controls:SevenSegmentNumber Number="2"/>
-        <controls:SevenSegmentNumber Number="3"/>
-        <controls:SevenSegmentNumber Number="4"/>
+        <controls:SevenSegmentNumber Number="{Binding HourTens, Mode=TwoWay}"/>
+        <controls:SevenSegmentNumber Number="{Binding HourUnits}"/>
+
+        <VerticalStackLayout Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+        </VerticalStackLayout>
+
+        <controls:SevenSegmentNumber Number="{Binding MinuteTens}"/>
+        <controls:SevenSegmentNumber Number="{Binding MinuteUnits}"/>
         
     </HorizontalStackLayout>
 </ContentPage>

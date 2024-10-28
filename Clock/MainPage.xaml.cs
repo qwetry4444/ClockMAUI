@@ -2,16 +2,67 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        public static readonly BindableProperty HourTensProperty =
+            BindableProperty.Create(nameof(HourTens), typeof(int), typeof(MainPage), 0);
 
-        public MainPage()
+        public int HourTens
         {
-            InitializeComponent();
+            get => (int)GetValue(HourTensProperty);
+            set
+            {
+                SetValue(HourTensProperty, value);
+            }
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
+        public static readonly BindableProperty HourUnitsProperty =
+            BindableProperty.Create(nameof(HourUnits), typeof(int), typeof(MainPage), 0);
 
+        public int HourUnits
+        {
+            get => (int)GetValue(HourUnitsProperty);
+            set
+            {
+                SetValue(HourUnitsProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty MinuteTensProperty =
+            BindableProperty.Create(nameof(MinuteTens), typeof(int), typeof(MainPage), 0);
+
+        public int MinuteTens
+        {
+            get => (int)GetValue(MinuteTensProperty);
+            set
+            {
+                SetValue(MinuteTensProperty, value);
+            }
+        }
+
+        public static readonly BindableProperty MinuteUnitsProperty =
+            BindableProperty.Create(nameof(MinuteUnits), typeof(int), typeof(MainPage), 0);
+
+        public int MinuteUnits
+        {
+            get => (int)GetValue(MinuteUnitsProperty);
+            set
+            {
+                SetValue(MinuteUnitsProperty, value);
+            }
+        }
+        DateTime time;
+
+        
+        public MainPage()
+        {
+            time = DateTime.Now;
+            BindingContext = this;
+            InitializeComponent();
+            
+
+            HourTens = time.Hour / 10;
+            HourUnits = time.Hour % 10;
+            MinuteTens = time.Minute / 10;
+            MinuteUnits = time.Minute % 10;
         }
     }
 
