@@ -9,10 +9,7 @@ public partial class SevenSegmentNumber : ContentView
     public int Number
     {
         get => (int)GetValue(NumberProperty);
-        set
-        {
-            SetValue(NumberProperty, value);
-        }
+        set => SetValue(NumberProperty, value);
     }
 
     private static void OnNumberChanged(BindableObject bindable, object oldValue, object newValue)
@@ -100,8 +97,8 @@ public partial class SevenSegmentNumber : ContentView
 
     public SevenSegmentNumber()
 	{
-        BindingContext = this;
         InitializeComponent();
+        BindingContext = this;
     }
 
     public void convertNumber(int number)

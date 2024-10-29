@@ -1,4 +1,6 @@
-﻿namespace Clock
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Clock
 {
     public partial class MainPage : ContentPage
     {
@@ -49,20 +51,26 @@
                 SetValue(MinuteUnitsProperty, value);
             }
         }
+
         DateTime time;
 
-        
-        public MainPage()
+        public void updateTime()
         {
             time = DateTime.Now;
-            BindingContext = this;
-            InitializeComponent();
-            
 
             HourTens = time.Hour / 10;
             HourUnits = time.Hour % 10;
             MinuteTens = time.Minute / 10;
             MinuteUnits = time.Minute % 10;
+        }
+
+        public MainPage()
+        {
+            updateTime();
+
+            InitializeComponent();
+            BindingContext = this;
+            updateTime();
         }
     }
 
