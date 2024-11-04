@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ns="clr-namespace:Clock"
+             x:DataType="ns:ClockViewModel"
+             x:Class="Clock.MainPage">
+
+    <HorizontalStackLayout Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
+        <ns:SevenSegmentNumber x:Name="HourTensDisplay"/>
+        <ns:SevenSegmentNumber x:Name="HourUnitsDisplay"/>
+
+        <VerticalStackLayout Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+        </VerticalStackLayout>
+
+        <ns:SevenSegmentNumber x:Name="MinuteTensDisplay"/>
+        <ns:SevenSegmentNumber x:Name="MinuteUnitsDisplay"/>
+
+        <VerticalStackLayout Spacing="24" HorizontalOptions="Center" VerticalOptions="Center">
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+            <BoxView WidthRequest="40" HeightRequest="40" Color="Green" CornerRadius="8"/>
+        </VerticalStackLayout>
+
+        <ns:SevenSegmentNumber x:Name="SecondTensDisplay"/>
+        <ns:SevenSegmentNumber x:Name="SecondUnitsDisplay"/>
+    </HorizontalStackLayout>
+</ContentPage>
