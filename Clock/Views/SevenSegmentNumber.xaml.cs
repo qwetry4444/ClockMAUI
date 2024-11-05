@@ -8,7 +8,7 @@ public partial class SevenSegmentNumber : ContentView
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
                     var display = (SevenSegmentNumber)bindable;
-                    display.convertNumber();
+                    display.UpdateSevenSegmentNumber();
                 });
 
     public int Number
@@ -18,7 +18,7 @@ public partial class SevenSegmentNumber : ContentView
     }
 
 
-    bool[][] numberConvert =
+    readonly bool[][] numberConvert =
         [
             [true, false, true, true, true, true, true],
             [false, false, false, false, true, false, true],
@@ -32,7 +32,7 @@ public partial class SevenSegmentNumber : ContentView
             [true, true, true, true, true, false, true],
         ];
 
-    public void convertNumber()
+    public void UpdateSevenSegmentNumber()
     {
         if (Number < 0 || Number > 9) return;
 
@@ -50,6 +50,6 @@ public partial class SevenSegmentNumber : ContentView
     public SevenSegmentNumber()
 	{
         InitializeComponent();
-        convertNumber();
+        UpdateSevenSegmentNumber();
     }
 }

@@ -100,7 +100,7 @@ namespace Clock
         }
 
         public DateTime time;
-        public void updateTime()
+        public void UpdateTime()
         {
             time = DateTime.Now;
 
@@ -112,19 +112,19 @@ namespace Clock
             SecondUnits = time.Second % 10;
         }
 
-        async Task updateTimeEverySecond()
+        async Task UpdateTimeAsync()
         {
-            var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(1));
+            var periodicTimer = new PeriodicTimer(TimeSpan.FromSeconds(0.5));
             while (await periodicTimer.WaitForNextTickAsync())
             {
-                updateTime();
+                UpdateTime();
             }
         }
 
         
         public ClockViewModel() 
         {
-            updateTimeEverySecond();
+            UpdateTimeAsync();
         }
     }
 }
